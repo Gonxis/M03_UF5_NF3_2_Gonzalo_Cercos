@@ -1,8 +1,8 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.EOFException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
@@ -42,12 +42,29 @@ public class Actions {
             while ((linea = bufferedReader.readLine()) != null){
                 System.out.println(linea);
             }
-        } catch (Exception e) {
-            System.out.println("Error al leer en fichero txt... " + e.getMessage());
-        } 
+        }catch (EOFException eo){          
+            System.out.println("Final del archivo aparente " + eo);    
+        } catch (Exception ex) {
+            System.out.println("Error al leer el fichero txt... " + ex);
+        }
     }
     
     public static void writeInFile (Path path) throws IOException{
-        
+        try {
+            BufferedWriter bufferWriter = Files.newBufferedWriter(path, 
+                    java.nio.charset.StandardCharsets.UTF_8, java.nio.file.StandardOpenOption.CREATE);
+            
+            
+        } catch (Exception e) {
+        }
+    }
+    
+    public static void eraseInFile (Path path, Path path2){
+        try {
+            BufferedWriter bufferWriter=Files.newBufferedWriter(path2, 
+                    java.nio.charset.StandardCharsets.UTF_8, java.nio.file.StandardOpenOption.CREATE);
+            
+        } catch (Exception e) {
+        }
     }
 }

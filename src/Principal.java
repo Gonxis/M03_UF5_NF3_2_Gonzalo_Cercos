@@ -4,6 +4,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,9 +15,11 @@ public class Principal {
 
     
     private final static String filename = "stockTextFile.txt";
+    private final static String filename2 = "Auxiliar.txt";
     public static void main(String[] args) {
         
         Path path = Paths.get(filename);
+        Path path2 = Paths.get(filename2);
         Scanner scann = new Scanner (System.in);
         String cod = "";
 //        consultProduct (path);
@@ -23,6 +27,7 @@ public class Principal {
         byte op = 0;
 
         do {
+            try {
                 try {
                     System.out.println("");
                     op = Actions.menu(op);
@@ -36,8 +41,9 @@ public class Principal {
 
                     case 1:
                         
-                        System.out.print("Interta el código del producto que quiera introducir: ");
-                        cod = scann.next();
+//                        System.out.print("Interta el código del producto que quiera introducir: ");
+//                        cod = scann.next();
+                        Actions.readFromFile(path, cod);
                         
                         break;
                     case 2:
@@ -49,6 +55,9 @@ public class Principal {
                     case 5:
                         break;
                 }                      
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } while (op != 5);
     }
 }

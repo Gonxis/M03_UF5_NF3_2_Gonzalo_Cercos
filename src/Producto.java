@@ -31,16 +31,16 @@ public class Producto {
 
     protected void setCod(String cod) throws Exception {
         if (cod.length() < 5 || cod.length() > 20) {
-            throw new Exception("El código tiene que tener un mínimo de 5 caracteres y menos de 20 caracteres.");
+            throw new Exception("El código del producto debe contener entre 5 y 20 caracteres");
         } else {
             this.cod = cod;
         }
     }
 
     protected void setDesc(String desc) throws Exception {
-        if (desc.length() < 1 || desc.length() > 20) {
+        if (desc.length() < 1 || desc.length() > 100) {
             System.out.println("Descripcion no válida: " + desc);
-            throw new Exception("La descripción no puede ser null ni contener más de 20 caracteres.");
+            throw new Exception("La descripción no puede ser null ni contener más de 100 caracteres.");
         } else {
             this.desc = desc;
         }
