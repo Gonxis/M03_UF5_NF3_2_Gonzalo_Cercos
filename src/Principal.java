@@ -41,18 +41,27 @@ public class Principal {
 
                     case 1:
                         
-//                        System.out.print("Interta el código del producto que quiera introducir: ");
-//                        cod = scann.next();
-                        Actions.readFromFile(path, cod);
+                        System.out.print("Interta el código del producto que quiera introducir: ");
+                        cod = scann.next();
+                        if ()
                         
                         break;
                     case 2:
+                        
+                        Actions.eraseInFile(path, path2, cod);
                         break;
                     case 3:
                         break;
                     case 4:
+                        System.out.println("");
+                        Actions.readAllLinesFromFile(path);
+                        System.out.println("");
                         break;
                     case 5:
+                        System.out.println("");
+                        System.out.println("Ha elegido salir del programa");
+                        System.out.println("");
+                        System.out.println("Adiós");
                         break;
                 }                      
             } catch (IOException ex) {
