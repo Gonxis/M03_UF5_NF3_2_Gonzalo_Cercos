@@ -43,7 +43,7 @@ public class Principal {
                         
                         System.out.print("Interta el código del producto que quiera introducir: ");
                         cod = scann.next();
-                        if ()
+//                        if ()
                         
                         break;
                     case 2:
